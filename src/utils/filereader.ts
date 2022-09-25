@@ -26,7 +26,7 @@ export class ReadFile {
     });
   }
 
-  public async getRowsByHomeTeam(team: string): Promise<string[]> {
+  public async getCsvString(team: string): Promise<string> {
     const readLine = this.createReadLine();
     const myArr: string[] = [];
 
@@ -36,6 +36,6 @@ export class ReadFile {
 
     readLine.close();
 
-    return myArr;
+    return myArr.join("\n");
   }
 }
