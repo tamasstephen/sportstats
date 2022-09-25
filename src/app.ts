@@ -1,9 +1,11 @@
-import { FootBallMatchData } from "./services/football";
-import { getCsv } from "./utils/csv";
+import express from "express";
+import { router } from "./routes/premLeague";
 
-async function init() {
-  const Football = new FootBallMatchData(await getCsv());
-  console.log(Football.getMatchesByTeam("Arsenal"));
-}
+const app = express();
 
-init();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use("/prem_league", router);
+
+app.listen(3000, () => console.log("it works"));
