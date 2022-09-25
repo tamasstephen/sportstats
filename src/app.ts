@@ -1,10 +1,9 @@
-import { ReadFile } from "./utils/filereader";
-import { parseCsv } from "./utils/csv";
+import { FootBallMatchData } from "./services/football";
+import { getCsv } from "./utils/csv";
 
 async function init() {
-  const data = new ReadFile();
-  const rows = await data.getCsvString("Arsenal");
-  console.log(parseCsv(rows));
+  const Football = new FootBallMatchData(await getCsv());
+  console.log(Football.getMatchesByTeam("Arsenal"));
 }
 
 init();

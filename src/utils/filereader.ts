@@ -26,7 +26,7 @@ export class ReadFile {
     });
   }
 
-  public async getCsvString(team: string): Promise<string> {
+  public async getCsvString(): Promise<string> {
     const readLine = this.createReadLine();
     const myArr: string[] = [];
 
